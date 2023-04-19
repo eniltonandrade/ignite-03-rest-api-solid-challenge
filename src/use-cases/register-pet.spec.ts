@@ -1,5 +1,4 @@
 import { expect, describe, it, beforeEach } from 'vitest'
-import { compare } from 'bcryptjs'
 import { InMemoryPetsRepository } from '@/repositories/in-memory/in-memory-pets-repository'
 import { RegisterPetUseCase } from './register-pet'
 
