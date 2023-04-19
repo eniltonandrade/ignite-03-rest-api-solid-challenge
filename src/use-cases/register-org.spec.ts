@@ -1,15 +1,15 @@
 import { InMemoryOrgsRepository } from '@/repositories/in-memory/in-memory-orgs-repository'
 import { expect, describe, it, beforeEach } from 'vitest'
-import { RegisterUseCase } from './register'
+import { RegisterOrgUseCase } from './register-org'
 import { compare } from 'bcryptjs'
 
 let orgRepository: InMemoryOrgsRepository
-let sut: RegisterUseCase
+let sut: RegisterOrgUseCase
 
 describe('Register Use Case', () => {
   beforeEach(() => {
     orgRepository = new InMemoryOrgsRepository()
-    sut = new RegisterUseCase(orgRepository)
+    sut = new RegisterOrgUseCase(orgRepository)
   })
 
   it('should hash user password upon registration', async () => {
