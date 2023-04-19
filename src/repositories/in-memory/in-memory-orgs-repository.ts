@@ -1,0 +1,25 @@
+import { Prisma, Org } from '@prisma/client'
+import { OrgsRepository } from '../orgs-repository'
+import { randomUUID } from 'node:crypto'
+
+export class InMemoryOrgsRepository implements OrgsRepository {
+  public items: Org[] = []
+
+  async create(data: Prisma.OrgCreateInput) {
+    const org: Org = {
+      id: data.id ?? randomUUID(),
+      name: data.name,
+      email: data.email,
+      password_hash: data.password_hash,
+      address_state: data.address_state,
+      address_city: data.address_city,
+      address_street: data.address_street,
+      address_number: data.address_number,
+      phone: data.phone,
+      created_at: new Date(),
+    }
+    this.items.push(org)
+
+    return org
+  }
+}
