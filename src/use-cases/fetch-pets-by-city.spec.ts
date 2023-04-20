@@ -1,12 +1,13 @@
 import { InMemoryPetsRepository } from '@/repositories/in-memory/in-memory-pets-repository'
 import { expect, describe, it, beforeEach } from 'vitest'
 import { FetchPetsByCityUseCase } from './fetch-pets-by-city'
+import { ResourceNotProvidedError } from './errors/resource-not-provided-error'
 
 let petsRepository: InMemoryPetsRepository
 
 let sut: FetchPetsByCityUseCase
 
-describe('Fetch User Check-In History Use Case', () => {
+describe('Fetch Pets by City Use Case', () => {
   beforeEach(async () => {
     petsRepository = new InMemoryPetsRepository()
     sut = new FetchPetsByCityUseCase(petsRepository)
@@ -68,5 +69,13 @@ describe('Fetch User Check-In History Use Case', () => {
       expect.objectContaining({ org_id: 'ORG01' }),
       expect.objectContaining({ org_id: 'ORG04' }),
     ])
+  })
+
+  it('should be not able to fetch pets without a city', async () => {
+    await expect(() =>
+      sut.execute({
+        city: '',
+      }),
+    ).rejects.toBeInstanceOf(ResourceNotProvidedError)
   })
 })
