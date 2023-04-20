@@ -5,7 +5,7 @@ Find a Friend - Pet adoption App.
 ## FRs (Functional Requirements)
 
 - [ ] Should be able to register a pet;
-- [ ] Should be able to list all pets available for adoption in some city;
+- [x] Should be able to list all pets available for adoption in some city;
 - [ ] Should be able to filter the pets by its characteristics ;
 - [ ] Should be able to get details about the pet for adoption;
 - [x] Should be able to register an organization;
