@@ -1,9 +1,10 @@
-import { Prisma, Pet } from '@prisma/client'
+import { Prisma, Pet, Org } from '@prisma/client'
 import { randomUUID } from 'node:crypto'
 import { PetsRepository } from '../pets-repository'
 
 export class InMemoryPetsRepository implements PetsRepository {
   public items: Pet[] = []
+  public orgs: Org[] = []
 
   async create(data: Prisma.PetUncheckedCreateInput) {
     const pet: Pet = {
@@ -21,5 +22,21 @@ export class InMemoryPetsRepository implements PetsRepository {
     this.items.push(pet)
 
     return pet
+  }
+
+  async searchManyByCity(city: string) {
+    const result: Pet[][] = []
+    let pets: Pet[] = []
+    const orgs = this.orgs.filter((item) => item.address_city === city)
+
+    orgs.forEach((org) => {
+      result.push(this.items.filter((item) => item.org_id === org.id))
+    })
+
+    for (let i = 0; i < result.length; i++) {
+      pets = pets.concat(result[i])
+    }
+
+    return pets
   }
 }
