@@ -4,11 +4,11 @@ import { Pet } from '@prisma/client'
 interface RegisterPetUseCaseRequest {
   name: string
   description: string
-  age: string
+  age: number
   size: 'SMALL' | 'MEDIUM' | 'BIG'
   energy_level: 'HIGH' | 'MEDIUM' | 'LOW'
   independence_level: 'HIGH' | 'MEDIUM' | 'LOW'
-  environment_type: string
+  environment_type: 'SMALL' | 'MEDIUM' | 'BIG'
   orgId: string
 }
 

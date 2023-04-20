@@ -1,16 +1,16 @@
 import { InMemoryPetsRepository } from '@/repositories/in-memory/in-memory-pets-repository'
 import { expect, describe, it, beforeEach } from 'vitest'
-import { FetchPetsByCityUseCase } from './fetch-pets-by-city'
+import { FetchPetsUseCase } from './fetch-pets'
 import { ResourceNotProvidedError } from './errors/resource-not-provided-error'
 
 let petsRepository: InMemoryPetsRepository
 
-let sut: FetchPetsByCityUseCase
+let sut: FetchPetsUseCase
 
 describe('Fetch Pets by City Use Case', () => {
   beforeEach(async () => {
     petsRepository = new InMemoryPetsRepository()
-    sut = new FetchPetsByCityUseCase(petsRepository)
+    sut = new FetchPetsUseCase(petsRepository)
   })
 
   it('should be able to fetch pets by city', async () => {
@@ -40,10 +40,10 @@ describe('Fetch Pets by City Use Case', () => {
     })
 
     await petsRepository.create({
-      age: '7 years old',
+      age: 7,
       description: 'clean dog',
       energy_level: 'HIGH',
-      environment_type: 'lots of grass',
+      environment_type: 'BIG',
       independence_level: 'HIGH',
       name: 'Scooby',
       org_id: 'ORG01',
@@ -51,10 +51,10 @@ describe('Fetch Pets by City Use Case', () => {
     })
 
     await petsRepository.create({
-      age: '7 years old',
+      age: 7,
       description: 'clean dog',
       energy_level: 'HIGH',
-      environment_type: 'lots of grass',
+      environment_type: 'BIG',
       independence_level: 'HIGH',
       name: 'Scooby',
       org_id: 'ORG04',

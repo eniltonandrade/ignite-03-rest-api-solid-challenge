@@ -1,6 +1,6 @@
 import { Prisma, Pet, Org } from '@prisma/client'
 import { randomUUID } from 'node:crypto'
-import { PetsRepository } from '../pets-repository'
+import { FindManyParams, PetsRepository } from '../pets-repository'
 
 export class InMemoryPetsRepository implements PetsRepository {
   public items: Pet[] = []
@@ -24,10 +24,10 @@ export class InMemoryPetsRepository implements PetsRepository {
     return pet
   }
 
-  async searchManyByCity(city: string) {
+  async findMany(filters: FindManyParams) {
     const result: Pet[][] = []
     let pets: Pet[] = []
-    const orgs = this.orgs.filter((item) => item.address_city === city)
+    const orgs = this.orgs.filter((item) => item.address_city === filters.city)
 
     orgs.forEach((org) => {
       result.push(this.items.filter((item) => item.org_id === org.id))

@@ -13,10 +13,10 @@ describe('Register Pet Use Case', () => {
 
   it('should be able to register a pet', async () => {
     const { pet } = await sut.execute({
-      age: '7 years old',
+      age: 7,
       description: 'clean dog',
       energy_level: 'HIGH',
-      environment_type: 'lots of grass',
+      environment_type: 'BIG',
       independence_level: 'HIGH',
       name: 'Scooby',
       orgId: 'org-1',

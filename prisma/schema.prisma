@@ -42,11 +42,11 @@ model Pet {
   id                 String   @id @default(uuid())
   name               String
   description        String
-  age                String
+  age                Int
   size               Size
   energy_level       Level
   independence_level Level
-  environment_type   String
+  environment_type   Size
   created_at         DateTime @default(now())
 
   org    Org    @relation(fields: [org_id], references: [id])
