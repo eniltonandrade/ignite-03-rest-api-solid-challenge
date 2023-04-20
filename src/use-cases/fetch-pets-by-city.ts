@@ -1,5 +1,6 @@
 import { PetsRepository } from '@/repositories/pets-repository'
 import { Pet } from '@prisma/client'
+import { ResourceNotProvidedError } from './errors/resource-not-provided-error'
 
 interface FetchPetsByCityUseCaseRequest {
   city: string
@@ -15,6 +16,10 @@ export class FetchPetsByCityUseCase {
   async execute({
     city,
   }: FetchPetsByCityUseCaseRequest): Promise<FetchPetsByCityUseCaseResponse> {
+    if (city === '') {
+      throw new ResourceNotProvidedError()
+    }
+
     const pets = await this.petsRepository.searchManyByCity(city)
 
     return { pets }
