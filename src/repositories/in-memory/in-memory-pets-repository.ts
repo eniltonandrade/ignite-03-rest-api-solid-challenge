@@ -25,9 +25,18 @@ export class InMemoryPetsRepository implements PetsRepository {
   }
 
   async findMany(filters: FindManyParams) {
+    const {
+      city,
+      age,
+      energy_level,
+      environment_type,
+      independence_level,
+      size,
+    } = filters
     const result: Pet[][] = []
     let pets: Pet[] = []
-    const orgs = this.orgs.filter((item) => item.address_city === filters.city)
+    let filteredPets: Pet[] = []
+    const orgs = this.orgs.filter((item) => item.address_city === city)
 
     orgs.forEach((org) => {
       result.push(this.items.filter((item) => item.org_id === org.id))
@@ -36,7 +45,19 @@ export class InMemoryPetsRepository implements PetsRepository {
     for (let i = 0; i < result.length; i++) {
       pets = pets.concat(result[i])
     }
-
+    if (independence_level || age || energy_level || environment_type || size) {
+      filteredPets = pets.filter(
+        (pet) =>
+          (independence_level === undefined ||
+            pet.independence_level === independence_level) &&
+          (environment_type === undefined ||
+            pet.environment_type === environment_type) &&
+          (size === undefined || pet.size === size) &&
+          (energy_level === undefined || pet.energy_level === energy_level) &&
+          (age === undefined || pet.age === age),
+      )
+      return filteredPets
+    }
     return pets
   }
 }
