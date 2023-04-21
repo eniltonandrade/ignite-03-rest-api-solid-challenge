@@ -7,7 +7,7 @@ Find a Friend - Pet adoption App.
 - [x] Should be able to register a pet;
 - [x] Should be able to list all pets available for adoption in some city;
 - [x] Should be able to filter the pets by its characteristics ;
-- [ ] Should be able to get details about the pet for adoption;
+- [x] Should be able to get details about the pet for adoption;
 - [x] Should be able to register an organization;
 - [x] Should be able to log in as a organization;
 
