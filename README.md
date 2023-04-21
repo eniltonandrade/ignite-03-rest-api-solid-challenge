@@ -19,7 +19,7 @@ Find a Friend - Pet adoption App.
 - [x] A Pet should be related to a organization;
 - [x] The user who wants to adopt, must contact the organiztion via Whatsapp;
 - [x] All filters are optionals expect city
-- [ ] The org must be logged in to access the application as ADMIN
+- [x] The org must be logged in to access the application as ADMIN
 
 
 
