@@ -16,6 +16,7 @@ export class InMemoryOrgsRepository implements OrgsRepository {
       address_street: data.address_street,
       address_number: data.address_number,
       phone: data.phone,
+      role: data.role ? data.role : 'MEMBER',
       created_at: new Date(),
     }
     this.items.push(org)
