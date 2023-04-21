@@ -6,7 +6,7 @@ Find a Friend - Pet adoption App.
 
 - [x] Should be able to register a pet;
 - [x] Should be able to list all pets available for adoption in some city;
-- [ ] Should be able to filter the pets by its characteristics ;
+- [x] Should be able to filter the pets by its characteristics ;
 - [ ] Should be able to get details about the pet for adoption;
 - [x] Should be able to register an organization;
 - [x] Should be able to log in as a organization;
@@ -18,8 +18,8 @@ Find a Friend - Pet adoption App.
 - [x] The organization must have a address and whatsapp number
 - [x] A Pet should be related to a organization;
 - [ ] The user who wants to adopt, must contact the organiztion via Whatsapp;
-- [ ] All filters are optionals expect city
-- [ ] The org must be logged in to access the application
+- [x] All filters are optionals expect city
+- [ ] The org must be logged in to access the application as ADMIN
 
 
 
