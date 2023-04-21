@@ -25,6 +25,7 @@ describe('Fetch Pets by City Use Case', () => {
       name: 'ORG 1',
       password_hash: 'password',
       phone: '00000000',
+      role: 'ADMIN',
     })
     petsRepository.orgs.push({
       address_city: 'Sorocaba',
@@ -37,6 +38,7 @@ describe('Fetch Pets by City Use Case', () => {
       name: 'ORG 4',
       password_hash: 'password',
       phone: '00000000',
+      role: 'ADMIN',
     })
 
     await petsRepository.create({
@@ -91,6 +93,7 @@ describe('Fetch Pets by City Use Case', () => {
       name: 'ORG 1',
       password_hash: 'password',
       phone: '00000000',
+      role: 'ADMIN',
     })
     petsRepository.orgs.push({
       address_city: 'Sorocaba',
@@ -103,6 +106,7 @@ describe('Fetch Pets by City Use Case', () => {
       name: 'ORG 4',
       password_hash: 'password',
       phone: '00000000',
+      role: 'ADMIN',
     })
 
     await petsRepository.create({
