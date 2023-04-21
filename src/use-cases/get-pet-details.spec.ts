@@ -6,13 +6,13 @@ import { GetPetDetailsUseCase } from './get-pet-details'
 let petRepository: InMemoryPetsRepository
 let sut: GetPetDetailsUseCase
 
-describe('Authenticate Use Case', () => {
+describe('Get Pet Details Use Case', () => {
   beforeEach(() => {
     petRepository = new InMemoryPetsRepository()
     sut = new GetPetDetailsUseCase(petRepository)
   })
 
-  it('should be able to get user profile', async () => {
+  it('should be able to get pet details', async () => {
     const createPet = await petRepository.create({
       age: 7,
       description: 'clean dog',
@@ -32,7 +32,7 @@ describe('Authenticate Use Case', () => {
     expect(pet.name).toEqual('Scooby')
   })
 
-  it('should not be able to get user profile with wrong user id', async () => {
+  it('should not be able to get pet details with wrong pet id', async () => {
     await expect(() =>
       sut.execute({
         petId: '12341234',
