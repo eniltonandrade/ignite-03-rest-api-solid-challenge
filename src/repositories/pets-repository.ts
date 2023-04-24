@@ -4,7 +4,7 @@ export interface FindManyParams {
   city: string
   age?: number
   size?: 'SMALL' | 'MEDIUM' | 'BIG'
-  energy_level?: 'SMALL' | 'MEDIUM' | 'BIG'
+  energy_level?: 'LOW' | 'MEDIUM' | 'HIGH'
   independence_level?: 'LOW' | 'MEDIUM' | 'HIGH'
   environment_type?: 'SMALL' | 'MEDIUM' | 'BIG'
 }

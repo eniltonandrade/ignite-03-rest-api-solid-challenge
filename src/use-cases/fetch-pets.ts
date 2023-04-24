@@ -6,7 +6,7 @@ interface FetchPetsUseCaseRequest {
   city: string
   age?: number
   size?: 'SMALL' | 'MEDIUM' | 'BIG'
-  energyLevel?: 'SMALL' | 'MEDIUM' | 'BIG'
+  energyLevel?: 'LOW' | 'MEDIUM' | 'HIGH'
   independenceLevel?: 'LOW' | 'MEDIUM' | 'HIGH'
   environmentType?: 'SMALL' | 'MEDIUM' | 'BIG'
 }
